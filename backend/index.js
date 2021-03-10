@@ -1,6 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const movieRoutes = require("./routes")
+const bodyParser = require("body-parser")
 // mongodb + srv://dbAdmin:p5UoCrjcL8Fw394z@watchlydb.cyhzd.mongodb.net/watchly?retryWrites=true&w=majority
 mongoose.connect('mongodb+srv://dbAdmin:p5UoCrjcL8Fw394z@watchlydb.cyhzd.mongodb.net/watchly?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true  })
 .then(() => {
