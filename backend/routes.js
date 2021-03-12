@@ -4,7 +4,10 @@ const router = express.Router()
 
 router.get("/movies", async (req, res) => {
     const movies = await Movie.find()
-    res.send(movies)
+    res.status(200).json({
+        message: "All movies fetched!",
+        movies: movies
+    })
 })
 
 router.post("/movies", async (req, res) => {
