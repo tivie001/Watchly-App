@@ -3,6 +3,8 @@
 	import Nav from './Components/Nav.svelte';
 	import FeaturedMovies from './Components/FeaturedMovies.svelte';
 	import Watchlist from './Components/Watchlist.svelte';
+	import Movies from './Components/Movies.svelte';
+	import Modal from 'svelte-simple-modal';
 </script>
 
 <main>
@@ -11,7 +13,9 @@
 	</head>
 	<Nav />
 	<div class="wrapper">
-		<FeaturedMovies/>
+		<Modal>
+        	<Movies />
+    	</Modal>
 		<Watchlist/>
 	</div>
 </main>
@@ -28,7 +32,7 @@
 	}
 	.wrapper {
 		display: grid;
-		grid-template-columns: repeat(5, 1fr);
+		grid-template-columns: repeat(7, 1fr);
 		gap: 10px;
 		grid-auto-rows: minmax(100px, auto);
 		margin: 1rem 3rem 2rem 3rem;

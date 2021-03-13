@@ -1,22 +1,33 @@
 const express = require("express")
-const Movie = require("./models/moviesModel")
+const WatchList = require("./models/watchListModel")
 const router = express.Router()
 
 router.get("/movies", async (req, res) => {
-    const movies = await Movie.find()
+    const watchList = await WatchList.find()
     res.status(200).json({
         message: "All movies fetched!",
-        movies: movies
+        watchList: watchList
     })
 })
 
-router.post("/movies", async (req, res) => {
-    const movie = new Movie({
-        title: req.body.title
+router.post("/addList", async (req, res) => {
+    WatchList.create({
+        title: req.body.title,
+        moviePoster: req.body.img, 
+        dateReleased: req.body.dateReleased
+
+    }, (err) => {
+        if (err)
+            console.log(err);
+            WatchList.find((err, lists) => {
+            if (err)
+                console.log(handleError(err))
+            res.json(lists)
+        })
     })
-    console.log(movie)
-    await movie.save()
-    res.send(movie)
+    // console.log(watchList)
+    // await watchList.save()
+    // res.send(watchList)
 })
 
 module.exports = router
