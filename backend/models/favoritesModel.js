@@ -1,9 +1,9 @@
 const mongoose = require("mongoose")
-const watchListSchema = mongoose.Schema({
+const favoritesSchema = mongoose.Schema({
     title: String,
     moviePoster: String,
     dateReleased: String,
     watched: Boolean
 })
 
-module.exports = mongoose.model("Watchlist", watchListSchema)
+module.exports = mongoose.model("Favorite", favoritesSchema)

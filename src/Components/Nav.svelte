@@ -1,13 +1,12 @@
 <script>
-    export let title;
 </script>
 <section class="app-nav">
     <nav class="nav-list-items">
         <ul>
             <li class="title">Watchly</li>
-            <li>Home</li>
+            <!-- <li><Link to="/">Home</Link><br /></li> -->
             <li>My Shows</li>
-            <li>My Movies</li>
+            <li><a href="my-movies">My Movies</a></li>
         </ul>
     </nav>
 
@@ -43,5 +42,9 @@
     .nav-list-items ul li {
         display: inline;
         padding: 0 20px 0 10px;
+    }
+    a {
+        text-decoration: none;
+        color: #fdfffc;
     }
 </style>

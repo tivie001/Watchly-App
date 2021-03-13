@@ -1,6 +1,7 @@
 <script>
     export let movie;
     import FaStar from 'svelte-icons/fa/FaStar.svelte'
+    import FaHeart from 'svelte-icons/fa/FaHeart.svelte'
     import axios from "axios";
 
     let selectedMovie;
@@ -12,7 +13,30 @@
             data: {
                 title: selectedMovie.title,
                 img: `https://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`,
-                dateReleased: selectedMovie.release_date
+                dateReleased: selectedMovie.release_date,
+                watched: false
+            }
+		};
+		axios.request(options)
+		.then((res) => {
+            console.log(res)
+            watchList = res.data.watchList
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+
+    };
+    const addToFavorites = () => {
+        selectedMovie = movie;
+        const options = {
+			method: "POST",
+            url: "http://localhost:3000/api/addFavorite",
+            data: {
+                title: selectedMovie.title,
+                img: `https://image.tmdb.org/t/p/w500${selectedMovie.poster_path}`,
+                dateReleased: selectedMovie.release_date,
+                watched: false
             }
 		};
 		axios.request(options)
@@ -39,6 +63,7 @@
             <div class="gold-star"><FaStar/></div>
         </div>
         <button on:click={addToWatchList}>add to watchlist</button>
+        <div class="heart-icon" on:click={addToFavorites}><FaHeart/></div>
     </div>
 
 </section>
@@ -63,9 +88,6 @@
         background-color: #011627;
         border: 2px solid #2ec4b6;
     }
-    .add-icon {
-        height: 20px;
-    }
     .rating-row {
         display: flex;
         justify-content: flex-start;
@@ -78,5 +100,13 @@
         color: #ffd700;
         width: 30px;
         padding-left: 8px;
+    }
+    .heart-icon {
+        height: 30px;
+        width: 30px;
+        padding-left: 8px;
+    }
+    .heart-icon:hover {
+        color: red;
     }
 </style>

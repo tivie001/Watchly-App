@@ -1,7 +1,6 @@
 <script>
     import { getContext } from "svelte";
     import MovieDialog from "./MovieDialog.svelte";
-    let title = "Home";
     let movies = [];
     import axios from "axios";
 
@@ -47,24 +46,18 @@
 
 <style>
 	.card-wrapper {
-		grid-column: 1 / 6;
+		grid-column: 1 / 8;
 		grid-row: 1 / 7;
 		border-radius: 5px;
 		box-shadow: 0 5px 5px -2px rgba(0, 0, 0, 0.9);
 		background-color: #262626;
         margin-bottom: 2rem;
 	}
-    .card-title {
-        text-align: left;
-        padding-left: 1rem;
-        color: #fdfffc;
-        font-variant: small-caps;
-        font-family: Raleway;
-    }
     .movie-grid {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(8, 1fr);
         gap: 20px;
+        row-gap: 50px;
 		grid-auto-rows: minmax(100px, auto);
         padding: 1rem
     }

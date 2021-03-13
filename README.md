@@ -18,7 +18,7 @@ Your ReadMe file will accurately describe the server install process (if any) an
 
 ## Routes :family:
 ### GET
-1. As a user I see all my movies (after adding at least one movie) in my watchlist.
+1. As a user I can see all my movies (after adding at least one movie) in my watchlist. (http://localhost:5000/watchlist)
 2. 
 3. 
 ### PUT
