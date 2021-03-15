@@ -75,10 +75,4 @@
         display: inline;
         padding: 0 20px 0 10px;
 	}
-
-	@media only screen and (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
 </style>
