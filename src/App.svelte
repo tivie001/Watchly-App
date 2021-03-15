@@ -3,7 +3,7 @@
 	import Movies from './Components/Movies.svelte';
 	import Modal from 'svelte-simple-modal';
 	import { Router, Link, Route } from "svelte-routing";
-	import MyWatchList from './Components/MyWatchList.svelte.ts';
+	import MyWatchList from './Components/MyWatchlist.svelte';
 	export let url = "";
 </script>
 
