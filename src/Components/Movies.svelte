@@ -75,4 +75,19 @@
     img:hover {
         background-color: aqua;
     }
+    @media only screen and (max-width: 639.99px) {
+		.movie-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+    }
+    @media only screen and (min-width: 640px) and (max-width: 1099.99px) {
+		.movie-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+    }
+    @media only screen and (min-width: 1100px) and (max-width: 1340px) {
+		.movie-grid {
+			grid-template-columns: repeat(6, 1fr);
+		}
+    }
 </style>

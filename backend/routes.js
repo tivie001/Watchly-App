@@ -121,5 +121,4 @@ router.delete('/deleteFavList/:id', (req, res) => {
     })
 })
 
-
 module.exports = router

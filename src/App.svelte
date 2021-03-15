@@ -76,9 +76,7 @@
         padding: 0 20px 0 10px;
 	}
 
-
-
-	@media (min-width: 640px) {
+	@media only screen and (min-width: 640px) {
 		main {
 			max-width: none;
 		}

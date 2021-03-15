@@ -1,6 +1,5 @@
 <script>
     import { onMount } from 'svelte'
-    let derp = "nerd";
     import axios from 'axios'
     import FaCheckSquare from 'svelte-icons/fa/FaCheckSquare.svelte'
     import FaTrashAlt from 'svelte-icons/fa/FaTrashAlt.svelte'
@@ -295,5 +294,17 @@
     .trash-icon:hover {
         color: red;
         cursor: pointer;
+    }
+    @media only screen and (max-width: 1099.99px) {
+        .card-wrapper {
+            margin: 1rem 0;
+            row-gap: 20px;
+        }
+		.list-container {
+            grid-column: 1 / 8;
+        }
+        .fav-container {
+            grid-column: 1 / 8; 
+        }
     }
 </style>
