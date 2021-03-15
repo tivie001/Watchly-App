@@ -8,13 +8,11 @@ mongoose.connect('mongodb+srv://dbAdmin:p5UoCrjcL8Fw394z@watchlydb.cyhzd.mongodb
 .then(() => {
     dotenv.config()
     const app = express()
-    app.set('port', (process.env.PORT || 3000));
     app.use(cors())
     app.use(bodyParser.json())
     app.use(bodyParser.urlencoded({ extended: true }))
-    app.use(express.static("public"));
     app.use("/api", movieRoutes)
-    app.listen(app.get('port'), () => {
+    app.listen(process.env.PORT || 3000, () => {
         console.log("Server has started")
     })
 })
