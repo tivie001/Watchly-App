@@ -1,12 +1,11 @@
 <script>
     import { getContext } from "svelte";
     import MovieDialog from "./MovieDialog.svelte";
-    let movies = [];
     import axios from "axios";
+    let movies = [];
 
     const { open } = getContext("simple-modal");
-
-    const showSurprise = (movie) => {
+    const openDialog = (movie) => {
         open(MovieDialog, { movie: movie });
     };
     
@@ -33,7 +32,7 @@
 <section class="card-wrapper">
     <div class="movie-grid">
         {#each movies as movie}
-            <div class="movie-item" on:click={showSurprise(movie)}>
+            <div class="movie-item" on:click={openDialog(movie)}>
                 <div class="img-container">
                     <img class="fav" src="https://image.tmdb.org/t/p/w500{movie.poster_path}" height="200" alt="{movie.title}">
                 </div>
@@ -75,8 +74,5 @@
     }
     img:hover {
         background-color: aqua;
-    }
-    .fav {
-        /* border: 3px solid #2ec4b6; */
     }
 </style>

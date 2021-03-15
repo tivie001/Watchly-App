@@ -17,7 +17,6 @@ router.get("/favorites", async (req, res) => {
         favorites: favorites
     })
 })
-
 router.post("/addList", async (req, res) => {
     WatchList.create({
         title: req.body.title,
@@ -29,9 +28,13 @@ router.post("/addList", async (req, res) => {
         if (err)
             console.log(err);
             WatchList.find((err, lists) => {
+                
             if (err)
                 console.log(handleError(err))
-            res.json(lists)
+            res.status(200).json({
+                message: "Movie added to watchlist!",
+                lists: lists
+            })
         })
     })
 })
@@ -48,7 +51,10 @@ router.post("/addFavorite", async (req, res) => {
             FavList.find((err, lists) => {
             if (err)
                 console.log(handleError(err))
-            res.json(lists)
+            res.status(200).json({
+                message: "Movie added to your favorites!",
+                lists: lists
+            })
         })
     })
 })
@@ -67,5 +73,53 @@ router.put('/updateList/:id', (req, res) => {
         })
     })
 })
+router.put('/updateFavList/:id', (req, res) => {
+    FavList.findById(req.params.id, (err, list) => {
+        if (err)
+            console.log(handleError(err));
+        list.update(req.body, (err) => {
+            if (err)
+                console.log(err);
+            FavList.find((err, list) => {
+                if (err)
+                    console.log(handleError(err));
+                res.json(list);
+            })
+        })
+    })
+})
+router.delete('/deleteList/:id', (req, res) => {
+    WatchList.remove({
+        _id: req.params.id
+    }, (err) => {
+        if (err)
+            console.log(handleError(err));
+            WatchList.find((err, list) => {
+                if (err)
+                    console.log(handleError(err));
+                res.status(200).json({
+                    message: "Movie removed from your watchlist!",
+                    list: list
+                })
+        })
+    })
+})
+router.delete('/deleteFavList/:id', (req, res) => {
+    FavList.remove({
+        _id: req.params.id
+    }, (err) => {
+        if (err)
+            console.log(handleError(err));
+        FavList.find((err, list) => {
+            if (err)
+                console.log(handleError(err));
+            res.status(200).json({
+                message: "Movie removed from your favorites!",
+                list: list
+            })
+        })
+    })
+})
+
 
 module.exports = router

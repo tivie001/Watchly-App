@@ -1,8 +1,16 @@
 <script>
     export let movie;
+    import { getContext } from "svelte";
+    import MovieDialog from "./MovieDialog.svelte";
     import FaStar from 'svelte-icons/fa/FaStar.svelte'
     import FaHeart from 'svelte-icons/fa/FaHeart.svelte'
     import axios from "axios";
+
+    const { close } = getContext("simple-modal");
+
+    const closeDialog = () => {
+        close(MovieDialog);
+    };
 
     let selectedMovie;
     const addToWatchList = () => {
@@ -20,7 +28,8 @@
 		axios.request(options)
 		.then((res) => {
             console.log(res)
-            watchList = res.data.watchList
+            alert(res.data.message)
+            closeDialog()
 		})
 		.catch((err) => {
 			console.log(err);
@@ -42,7 +51,8 @@
 		axios.request(options)
 		.then((res) => {
             console.log(res)
-            watchList = res.data.watchList
+            alert(res.data.message)
+            closeDialog()
 		})
 		.catch((err) => {
 			console.log(err);

@@ -13,7 +13,7 @@
 		<nav class="nav-list-items">
 			<ul>
 				<li class="title">Watchly</li>
-				<li><Link to="/" style="color: #fdfffc; text-decoration: none">Home</Link></li>
+				<li><Link to="/" class="links" style="color: #fdfffc; text-decoration: none">Home</Link></li>
 				<li><Link to="watchlist" style="color: #fdfffc; text-decoration: none">My Movies</Link></li>
 			</ul>
 		</nav>
@@ -26,8 +26,6 @@
 			</div>
 		</Route>
 		<Route path="watchlist" component={MyWatchList} />
-		<!-- <Route path="blog" component="{Blog}" /> -->
-		<!-- <Route path="about" component="{About}" /> -->
 	</div>
 </Router>
 
@@ -76,7 +74,8 @@
     .nav-list-items ul li {
         display: inline;
         padding: 0 20px 0 10px;
-    }
+	}
+
 
 
 	@media (min-width: 640px) {
