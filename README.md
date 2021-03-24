@@ -2,7 +2,7 @@
 ## Created by: Tyler Ivie
 ### Created in Node.js, Express.js, Mongoose, MongoDB on the backend. Svelte, JS, HTML, CSS on the frontend. This app will help you browse trending movies and add them to your watchlist
 
-[Recipe App URL](https://recipe-app-dgm3760.herokuapp.com/index.html)
+[Watchly URL](https://dazzling-goldberg-74b32f.netlify.app/)
 
 ----------------------------------------------------------
 
